@@ -1,8 +1,8 @@
 web:
   image: localhost:5000/kossolax/nginx:latest
   ports:
-    - "800:80"
-    - "4430:443"
+    - "80:80"
+    - "443:443"
   volumes:
     - /var/www:/var/www
     - /etc/nginx:/etc/nginx
