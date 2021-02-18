@@ -1,6 +1,6 @@
 services:
   web:
-    image: registry.zaretti.be/kossolax/nginx:latest
+    image: registry.zaretti.be/nginx:latest
     restart: unless-stopped
     ports:
       - "80:80"
@@ -13,12 +13,12 @@ services:
       - php7
       - php5
   php7:
-    image: registry.zaretti.be/kossolax/php:7.4
+    image: registry.zaretti.be/php:7.4
     restart: unless-stopped
     volumes:
       - /var/www:/var/www
   php5:
-    image: registry.zaretti.be/kossolax/php:5.6
+    image: registry.zaretti.be/php:5.6
     restart: unless-stopped
     volumes:
       - /var/www:/var/www
