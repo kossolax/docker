@@ -12,6 +12,7 @@ services:
       - php7
       - php5
     networks:
+      - default
       - backend
   php7:
     image: registry.zaretti.be/kossolax/php:7.4
