@@ -1,0 +1,14 @@
+web:
+  image: localhost:5000/kossolax/nginx:latest
+  ports:
+    - "800:80"
+    - "4430:443"
+  links:
+    - php7
+    - php5
+
+php7:
+  image: localhost:5000/kossolax/php:7.4
+
+php5:
+  image: localhost:5000/kossolax/php:5.6
