@@ -1,22 +1,26 @@
-web:
-  image: localhost:5000/kossolax/nginx:latest
-  ports:
-    - "80:80"
-    - "443:443"
-  volumes:
-    - /var/www:/var/www
-    - /etc/nginx:/etc/nginx
-    - /etc/letsencrypt:/etc/letsencrypt
-  links:
-    - php7
-    - php5
-
-php7:
-  image: localhost:5000/kossolax/php:7.4
-  volumes:
-    - /var/www:/var/www
-
-php5:
-  image: localhost:5000/kossolax/php:5.6
-  volumes:
-    - /var/www:/var/www
+services:
+  web:
+    image: registry.zaretti.be/kossolax/nginx:latest
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/www:/var/www
+      - /etc/nginx:/etc/nginx
+      - /etc/letsencrypt:/etc/letsencrypt
+    links:
+      - php7
+      - php5
+    networks:
+      - default
+      - backend
+  php7:
+    image: registry.zaretti.be/kossolax/php:7.4
+    volumes:
+      - /var/www:/var/www
+  php5:
+    image: registry.zaretti.be/kossolax/php:5.6
+    volumes:
+      - /var/www:/var/www
+networks:
+  backend:
