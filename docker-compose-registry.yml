@@ -1,0 +1,24 @@
+services:
+  registry:
+    image: registry:latest
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    volumes:
+      - /var/lib/registry:/var/lib/registry
+      - /opt/registry:/etc/docker/registry
+      - /etc/letsencrypt:/etc/letsencrypt
+    environment:
+      - REGISTRY_AUTH=htpasswd
+      - REGISTRY_AUTH_HTPASSWD_PATH=/etc/docker/registry/htpasswd
+      - REGISTRY_AUTH_HTPASSWD_REALM=Registry
+      - REGISTRY_HTTP_TLS_CERTIFICATE=/etc/letsencrypt/live/zaretti.be/fullchain.pem
+      - REGISTRY_HTTP_TLS_KEY=/etc/letsencrypt/live/zaretti.be/privkey.pem
+  ui:
+    image: joxit/docker-registry-ui:static
+    restart: unless-stopped
+    ports:
+      - "8005:80"
+    environment:
+      - REGISTRY_URL=https://192.168.188.115:5000
+      - DELETE_IMAGES=1
