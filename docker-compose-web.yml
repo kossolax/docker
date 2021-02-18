@@ -3,6 +3,10 @@ web:
   ports:
     - "800:80"
     - "4430:443"
+  volumes:
+    - /var/www:/var/www
+    - /etc/nginx:/etc/nginx
+    - /etc/letsencrypt:/etc/letsencrypt
   links:
     - php7
     - php5
