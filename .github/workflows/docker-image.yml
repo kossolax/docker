@@ -12,7 +12,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build . --file nginx/Dockerfile --tag registry.zaretti.be/kossolax/nginx:latest && \
-        docker login registry.zaretti.be --username kossolax --password "${{ secrets.PASSWORD }}" && \
-        docker image push registry.zaretti.be/kossolax/nginx:latest
-      
+      run: docker build . --file nginx/Dockerfile --tag registry.zaretti.be/kossolax/nginx:latest && docker login registry.zaretti.be --username kossolax --password "${{ secrets.PASSWORD }}" && docker image push registry.zaretti.be/kossolax/nginx:latest
