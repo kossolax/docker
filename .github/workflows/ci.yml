@@ -25,7 +25,7 @@ jobs:
           file: ./nginx/Dockerfile
           platforms: linux/amd64
           push: true
-          tags: registry.zaretti.be/kossolax/nginx:latest
+          tags: registry.zaretti.be/nginx:latest
       -
         name: PHP 7.4
         uses: docker/build-push-action@v2
@@ -34,7 +34,7 @@ jobs:
           file: ./php/Dockerfile-7.4
           platforms: linux/amd64
           push: true
-          tags: registry.zaretti.be/kossolax/php:7.4
+          tags: registry.zaretti.be/php:7.4
       -
         name: PHP 5.6
         uses: docker/build-push-action@v2
@@ -43,4 +43,4 @@ jobs:
           file: ./php/Dockerfile-5.6
           platforms: linux/amd64
           push: true
-          tags: registry.zaretti.be/kossolax/php:5.6
+          tags: registry.zaretti.be/php:5.6
