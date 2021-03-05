@@ -6,3 +6,5 @@ RUN apt update && apt install -y git curl wget python3-distutils python3-apt
 WORKDIR /alliedmodders
 RUN git clone --recursive https://github.com/alliedmodders/sourcemod
 RUN bash sourcemod/tools/checkout-deps.sh
+
+CMD ["bash"]
