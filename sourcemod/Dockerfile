@@ -7,4 +7,4 @@ WORKDIR /alliedmodders
 RUN git clone --recursive https://github.com/alliedmodders/sourcemod
 RUN bash sourcemod/tools/checkout-deps.sh
 
-CMD ["bash"]
+ENTRYPOINT ["sleep", "inf"]
