@@ -13,6 +13,7 @@ services:
     links:
       - php7
       - php5
+      - mariadb
   php7:
     image: registry.zaretti.be/php:7.4
     restart: unless-stopped
@@ -26,6 +27,18 @@ services:
     restart: unless-stopped
     volumes:
       - /var/www:/var/www
+    networks:
+      - default
+      - backend
+  mariadb:
+    image: mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_USER=kossolax
+      - MYSQL_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=false
+    volumes:
+      - /opt/database:/var/lib/mysql
     networks:
       - default
       - backend
