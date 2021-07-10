@@ -1,0 +1,23 @@
+version: '2'
+services:
+  phabricator:
+    image: registry.zaretti.be/phabricator:latest
+    ports:
+      - '8448:8080'
+      - '8443:8443'
+    network_mode: bridge
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+      - PHABRICATOR_HOST=git.zaretti.be
+      - PHABRICATOR_USERNAME=kossolax
+      - PHABRICATOR_PASSWORD=___________
+      - PHABRICATOR_EMAIL=kossolax@gmail.com
+      - PHABRICATOR_FIRSTNAME=Steve
+      - PHABRICATOR_LASTNAME=Zaretti
+      - PHABRICATOR_DATABASE_HOST=192.168.188.115
+      - PHABRICATOR_DATABASE_PORT_NUMBER=33006
+      - PHABRICATOR_DATABASE_ADMIN_USER=kossolax
+      - PHABRICATOR_DATABASE_DATABASE_USER=kossolax
+      - PHABRICATOR_DATABASE_ADMIN_PASSWORD=________
+    volumes:
+      - '/opt/phabricator/:/bitnami/phabricator/'

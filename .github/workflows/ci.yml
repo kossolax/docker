@@ -54,6 +54,15 @@ jobs:
           push: true
           tags: registry.zaretti.be/pxe:latest
       -
+        name: Phabricator
+        uses: docker/build-push-action@v2
+        with:
+          context: ./phabricator/
+          file: ./phabricator/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: registry.zaretti.be/phabricator:latest
+      -
         name: SourceMOD
         uses: docker/build-push-action@v2
         with:
