@@ -23,6 +23,9 @@ RUN cat /tmp/patch.txt >> /opt/bitnami/phabricator/webroot/rsrc/externals/javeli
 
 # EXTENSIONS:
 COPY ./patch/src/extensions/* /opt/bitnami/phabricator/src/extensions/
+COPY ./patch/support/* /opt/bitnami/phabricator/support/
+
+# EXTERNALS
 
 COPY ./patch/pygment/pseudo.py /usr/lib/python3/dist-packages/pygments/lexers/
 RUN sed -i "s/.*PanLexer.*/'PseudoLexer': \('pygments.lexers.pseudo', 'Pseudo', \('pseudo','pseudocode'\), \('*.pc',\), \(\)\),/" /usr/lib/python3/dist-packages/pygments/lexers/_mapping.py
