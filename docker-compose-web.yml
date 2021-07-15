@@ -10,6 +10,7 @@ services:
       - /mnt/data:/mnt/data
       - /etc/nginx:/etc/nginx
       - /etc/letsencrypt:/etc/letsencrypt
+      - /var/lib/pterodactyl:/var/lib/pterodactyl
     links:
       - php7
       - php5
