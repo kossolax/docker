@@ -20,6 +20,7 @@ services:
     restart: unless-stopped
     volumes:
       - /var/www:/var/www
+      - /opt/php/php7.ini:/usr/local/etc/php/php.ini
     networks:
       - default
       - backend
@@ -28,6 +29,7 @@ services:
     restart: unless-stopped
     volumes:
       - /var/www:/var/www
+      - /opt/php/php5.ini:/usr/local/etc/php/php.ini
     networks:
       - default
       - backend
