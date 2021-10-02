@@ -6,10 +6,10 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) gd
 
-RUN docker-php-ext-install mysqli pdo pdo_mysql exif imagick zip && \
-    docker-php-ext-enable pdo_mysql exif imagick zip
+RUN docker-php-ext-install mysqli pdo pdo_mysql zip && \
+    docker-php-ext-enable pdo_mysql zip
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 RUN apt-get install -y libssh2-1 libssh2-1-dev && \
-    pecl install ssh2-1.2 && \
+    pecl install ssh2-1.2 exif imagick && \
     docker-php-ext-enable ssh2
