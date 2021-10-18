@@ -5,6 +5,9 @@ USER root
 RUN apt update && apt install -y subversion wget zip npm
 RUN npm install -g render2katex
 
+# Fix: https://github.com/bitnami/bitnami-docker-phabricator/issues/151
+RUN ln -s /opt/bitnami/php/bin/php /usr/bin/php
+
 # PATCH
 WORKDIR /opt/bitnami/phabricator/webroot/rsrc/externals
 
