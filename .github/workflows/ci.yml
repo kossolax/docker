@@ -67,7 +67,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: ./Desktop/Dockerfile
+          file: ./desktop/Dockerfile
           platforms: linux/amd64
           push: true
           tags: registry.zaretti.be/desktop:latest
