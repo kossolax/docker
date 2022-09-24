@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y libssh2-1 libssh2-1-dev && \
     pecl install ssh2-1.2 && \
     docker-php-ext-enable ssh2
 
-RUN pt-get update && apt-get install -y zlib1g-dev zip libzip-dev && \
+RUN apt-get update && apt-get install -y zlib1g-dev zip libzip-dev && \
   docker-php-ext-install zip && \
   docker-php-ext-install exif
   
